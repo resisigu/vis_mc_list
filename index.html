@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD・プラグイン サーチ</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MOD・プラグイン サーチ</h1>
+        
+        <div class="search-section">
+            <select id="platform">
+                <option value="modrinth">Modrinth</option>
+                <option value="spiget">Spiget</option>
+            </select>
+            <select id="projectType">
+                <option value="mod">MOD</option>
+                <option value="plugin">プラグイン</option>
+                <option value="resourcepack">リソースパック</option>
+            </select>
+            <input type="text" id="searchQuery" placeholder="検索キーワードを入力 (例: worldedit)" />
+            <button onclick="searchProjects(1)">検索</button>
+        </div>
+        
+        <div id="results" class="results"></div>
+        <div id="searchPagination" class="pagination" style="display: none;"></div>
+        
+        <div id="projectDetail" class="project-detail" style="display: none;">
+            <button onclick="hideDetail()" class="back-button">戻る</button>
+            <h2 id="projectTitle"></h2>
+            <img id="projectIcon" alt="アイコン" />
+            <p id="projectDescription"></p>
+            <p><strong>作者:</strong> <span id="projectAuthor"></span></p>
+            
+            <h3>バージョン一覧</h3>
+            <div class="version-filter">
+                <label><input type="checkbox" id="filterRelease" checked onchange="filterVersions()"> Release</label>
+                <label><input type="checkbox" id="filterBeta" checked onchange="filterVersions()"> Beta</label>
+                <label><input type="checkbox" id="filterAlpha" checked onchange="filterVersions()"> Alpha</label>
+            </div>
+            <div id="versionList"></div>
+            <div id="versionPagination" class="pagination" style="display: none;"></div>
+            
+            <button onclick="hideDetail()">戻る</button>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

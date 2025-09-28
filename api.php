@@ -129,8 +129,6 @@ if ($action === 'search') {
             'icon' => $projectData['icon_url'] ?? '',
             'versions' => $versions
         ]);
-    versions
-        ]);
     } elseif ($platform === 'curseforge') {
         if (empty($apiKey) || $apiKey === 'YOUR_CURSEFORGE_API_KEY_HERE') {
             echo json_encode(['error' => 'CurseForge APIキーが設定されていません']);
